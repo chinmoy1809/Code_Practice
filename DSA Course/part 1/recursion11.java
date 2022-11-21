@@ -1,0 +1,25 @@
+// Q. Move all 'x' to the end of the String.
+//Time complexsity = O(n).
+public class recursion11{
+    public static void moveAllX(String str,int idx,int count,String newString){
+        if(idx == str.length()){
+            for(int i=1;i<=count;i++){
+                newString += 'x';
+            }
+            System.out.println(newString);
+            return;
+        }
+        char currChar = str.charAt(idx);
+        if(currChar == 'x'){
+            count++;
+            moveAllX(str,idx+1,count,newString);
+        }else{
+            newString += currChar;
+            moveAllX(str,idx+1,count,newString);
+        }
+    }
+    public static void main(String[] args){
+        String str = "axbcxx";
+        moveAllX(str,0,0,"");
+    }
+}
